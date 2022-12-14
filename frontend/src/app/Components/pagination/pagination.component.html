@@ -1,0 +1,27 @@
+<div class="container">
+    <nav aria-label="Page navigation example">
+        <form [formGroup]="formPagination">
+                <select formControlName="limit" class="setters" (change)="onValueChange()">
+                    <option *ngFor="let limit of limitsArray" [value]="limit">{{limit}}</option>
+                </select>
+                <ul class="pagination right">
+                    <li class="page-item">
+                        <a [class]="pagedData.hasPrevPage ? 'page-link' : 'page-link disabled'"
+                            (click)="onPrevClicked()">Previous</a>
+                    </li>
+                    <li class="page-item" *ngFor="let i of range">
+                        <a [class]="pagedData.CurrentPage === i ? 'page-link active' : 'page-link'"
+                            (click)="onPageClicked(i)">{{i}}</a>
+                    </li>
+                    <li class="page-item">
+                        <a [class]="pagedData.hasNextPage ? 'page-link' : 'page-link disabled'"
+                            (click)="onNextClicked()">Next</a>
+                    </li>
+                    <div class="form-inline" style="margin-left: 35%;">
+                        <label class="mx-2">Go To</label>
+                        <input type="text" class="pageNum" (keypress)="onKeyPress($event)" formControlName="gotoPage" (focus)="resettingForm()" (blur)="checkForChange()">
+                    </div>
+                </ul>
+        </form>
+    </nav>
+</div>

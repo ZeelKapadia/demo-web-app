@@ -1,0 +1,24 @@
+.Header {
+    position: fixed;
+    top: 0%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.Footer {
+    position: fixed;
+    bottom: 0%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.customContainer {
+    position: absolute;
+    height: calc(100vh - 50vh);
+    width:  calc(100vw); /* For 100% screen width */
+    
+}

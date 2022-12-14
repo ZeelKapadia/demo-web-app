@@ -1,0 +1,24 @@
+<div class="container my-5">
+    <form [formGroup]="formLogin">
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email, UserName or Mobile number"
+                formControlName="username">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        </div>
+        <div class="mb-3">
+            <a href="/forgotPassword">Forgot Password?</a>
+        </div>
+        <div class="mb-3">
+            <div>New to here? <a href="/register">Register</a></div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+</div>
+
+<app-custom-toaster [message]="ErrorMessage"></app-custom-toaster>
+
+
+
+<!-- https://convertio.co/download/193d902f57c69d30b890f54fb59624a08863b4/ -->

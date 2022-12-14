@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <div class="card-deck">
+        <div class="card my-5" style="width: 20em; margin:0 auto">
+            <img class="card-img-top" [src]="imgUrl ?imgUrl:'../../../../assets/zLogo.png'" style="height:20em;"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{empName}}</h5>
+                <div class="container">
+                    <div class="left">Email
+                    <span class="center">:</span>
+                    <span class="right">{{empEmail}}</span>
+                </div>
+                </div>
+                <div class="container">
+                    <div class="left">Phone
+                    <span class="center">:</span>
+                    <span class="right">{{empPhone}}</span></div>
+                </div>
+                <div class="container">
+                    <div class="left">Age
+                    <span class="center">:</span>
+                    <span style="text-align: end;">{{empAge}}</span></div>
+                </div>
+                <div class="container">
+                    <div class="left">Desigation
+                    <span class="center">:</span>
+                    <span class="right">{{designation}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-custom-toaster [message]="message"></app-custom-toaster>

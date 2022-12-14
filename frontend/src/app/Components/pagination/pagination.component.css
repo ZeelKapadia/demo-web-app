@@ -1,0 +1,19 @@
+.right {
+    margin-left: 5%;
+    vertical-align: baseline;
+}
+
+.pageNum {
+    width: 20%;
+    padding: 2%;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.setters {
+    /* text-align: center; */
+    vertical-align: baseline;
+    position: absolute;
+    height: 38px;
+}
+

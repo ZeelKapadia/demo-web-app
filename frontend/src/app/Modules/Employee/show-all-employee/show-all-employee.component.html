@@ -1,0 +1,78 @@
+<div class="container my-5">
+    <div>
+        <button type="button" class="btn btn-primary" (click)="onAddEmployee()">Add New Employee</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Sr No.</th>
+                <th scope="col">name
+                    <i class="bi bi-chevron-up" (click)="onToggle('name','ascending')"
+                        *ngIf="(field=='name' && order=='descending')">
+                    </i>
+                    <i class="bi bi-chevron-down" (click)="onToggle('name','descending')"
+                        *ngIf="field == ''|| field=='email' || field == 'phone' || field=='age' || field=='designation' ||(field=='name' && order=='ascending')"></i>
+                </th>
+                <th scope="col">email
+                    <i class="bi bi-chevron-up" (click)="onToggle('email','ascending')"
+                        *ngIf="(field=='email' && order=='descending')">
+                    </i>
+                    <i class="bi bi-chevron-down" (click)="onToggle('email','descending')"
+                        *ngIf="field == '' || field=='name'|| field == 'phone' ||field=='age' || field=='designation'||(field=='email' && order=='ascending')"></i>
+                </th>
+                <th scope="col">phone
+                    <i class="bi bi-chevron-up" (click)="onToggle('phone','ascending')"
+                        *ngIf="(field=='phone' && order=='descending')"></i>
+                    <i class="bi bi-chevron-down" (click)="onToggle('phone','descending')"
+                        *ngIf="field == '' || field=='name'|| field == 'email' ||field=='age' || field=='designation'||(field=='phone' && order=='ascending')"></i>
+                </th>
+                <th scope="col">age
+                    <i class="bi bi-chevron-up" (click)="onToggle('age','ascending')"
+                        *ngIf="(field=='age' && order=='descending')"></i>
+                    <i class="bi bi-chevron-down" (click)="onToggle('age','descending')"
+                        *ngIf="field == ''|| field=='name' || field == 'email' || field=='phone' || field=='designation'||(field=='age' && order=='ascending')"></i>
+                </th>
+                <th scope="col">designation
+                    <i class="bi bi-chevron-up" (click)="onToggle('designation','ascending')"
+                        *ngIf="(field=='designation' && order=='descending')"></i>
+                    <i class="bi bi-chevron-down" (click)="onToggle('designation','descending')"
+                        *ngIf="field == ''|| field=='name' || field == 'email' || field=='phone' || field=='age'||(field=='designation' && order=='ascending')"></i>
+                </th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeeList;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.age}}</td>
+                <td>{{employee.designation}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-text-white mx-2"
+                        (click)="onUpdate(employee._id!)">Update</button>
+                    <button type="button" class="btn btn-danger btn-text-white mx-2"
+                        (click)="onDelete(employee._id!)">Delete</button>
+                    <button type="button" class="btn btn-success btn-text-white mx-2"
+                        (click)="onShowDetails(employee._id!)">Show Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toast">
+    <div class="toast-header">
+        <img src="../../../../assets/icons/zLogo.ico" style="max-height: 10%; max-width: 10%;" class="rounded me-2"
+            alt="myimagehere">
+        <strong class="me-auto">ZeeFactor</strong>
+        <small class="text-muted">now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        {{message}}
+    </div>
+</div>
+
+<app-pagination [pagedData]="pagedObject" (changePage)="onPageChanged($event)" (limitChange)="onLimitChange($event)"
+    *ngIf="isShowpagination" class="pagination"></app-pagination>
